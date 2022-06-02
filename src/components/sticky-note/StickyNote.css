@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* body {
+  background: #666;
+} */
+
+h2 {
+  font-size: 140%;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+p {
+  font-family: "Reenie Beanie", arial, sans-serif;
+  font-size: 180%;
+}
+/* li {
+  list-style: none;
+} */
+
+.cell {
+  margin: 1em;
+  float: left;
+}
+
+.cell a {
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  display: block;
+  height: 15em;
+  width: 15em;
+  padding: 1em;
+  /* Firefox */
+  -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+  /* Safari+Chrome */
+  -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+  /* Opera */
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+  /*tilts the sticky notes*/
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  /*makes the transition of the sticky note from normal form to enlarged (on hover/focus) smooth*/
+  /*the transition occurs gradually over a quarter second*/
+  -moz-transition: -moz-transform 0.15s linear;
+  -o-transition: -o-transform 0.15s linear;
+  -webkit-transition: -webkit-transform 0.15s linear;
+  transition: -webkit-transform 0.15s linear;
+}
+/*creates seemingly random tilts for notes*/
+/*every even note => tilted to right 4 degrees, pushed down 5px*/
+.cell:nth-child(even) a {
+  -o-transform: rotate(4deg);
+  -webkit-transform: rotate(4deg);
+  -moz-transform: rotate(4deg);
+  transform: rotate(4deg);
+  position: relative;
+  top: 5px;
+  background: #cfc;
+}
+/*every 3rd note => tilted to left 3 degrees, pushed up 5px*/
+.cell:nth-child(3n) a {
+  -o-transform: rotate(-3deg);
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  position: relative;
+  top: -5px;
+  background: #ccf;
+}
+/*every 5th note => tilted to right 5 degrees, pushed up 10px*/
+.cell:nth-child(5n) a {
+  -o-transform: rotate(5deg);
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  transform: rotate(5deg);
+  position: relative;
+  top: -10px;
+}
+
+/*makes the sitcky enlarge on hover/focus.*/
+/*box shadow needs to be increased as sitcky note size increases (scale)*/
+/*increasing z-index makes sure the enlarged sticky 
+  notes appears over the other sticky notes*/
+.cell a:hover,
+.cell a:focus {
+  -moz-box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  transform: scale(1.25);
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  z-index: 5;
+}
